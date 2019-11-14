@@ -5,11 +5,11 @@ def procesar(numero):
     while numero != "6174":
         contador += 1
 
-        max = minuendo(numero)
-        min = sustraendo(numero)
+        mayor = minuendo(numero)
+        menor = sustraendo(numero)
 
-        numero = str(max - min)
-        print( str(contador) + '.- (', max, "-", min, ")\t=\t", numero)
+        numero = str(mayor - menor)
+        print( str(contador) + '.- (', mayor, "-", menor, ")\t=\t", numero)
 
     print("================================================")
     print("Constante de Kaprekar encontrada en ("+ str(contador) +") intentos.")
