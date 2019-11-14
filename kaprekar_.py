@@ -5,10 +5,10 @@ def procesar(numero):
     while numero != "6174":
         contador += 1
 
-        max = minuendo(numero)
-        min = sustraendo(numero)
+        mayor = minuendo(numero)
+        menor = sustraendo(numero)
 
-        numero = str(max - min)
+        numero = str(mayor - menor)
     return contador
 
 # Construimos el número mayor
@@ -43,8 +43,29 @@ print("CONSTANTE DE KAPREKAR")
 print("=====================")
 print("")
 
-exclusiones = [1111, 2222, 3333, 4444, 5555, 6666, 7777, 8888, 9999]
+exclusiones = [1111, 2222, 3333, 4444, 5555, 6174, 6666, 7777, 8888, 9999]
+minimo = 100
+maximo = 0
+lista_min = []
+lista_max = []
 
 for x in range(1000, 10000):
     if not x in exclusiones:
-        print(x, "=", procesar(str(x)))
+        intentos = procesar(str(x))
+        if minimo > intentos: 
+            lista_min.clear()
+            minimo = intentos
+            lista_min.append(x)
+        if minimo == intentos: 
+            lista_min.append(x)
+        if maximo < intentos:
+            lista_max.clear()
+            maximo = intentos
+            lista_max.append(x)
+        if maximo == intentos:
+            lista_max.append(x)
+
+print("Cantidad de Intentos menor:", minimo)
+print(lista_min)
+print("Cantidad de Intentos mayor:", maximo)
+print(lista_max)
